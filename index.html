@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular.js" integrity="sha256-g6Xp/JxVpGrPtK67q2kwtrTQNmKEHsBmw04v3ak0dWc=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAA8htwR_YQBNYbL4CWx8E4bc1tiJwqVxU"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAA8htwR_YQBNYbL4CWx8E4bc1tiJwqVxU"></script>
 </head>
 <body ng-cloak ng-controller="AddressController">
 <div>
@@ -72,7 +72,7 @@
     .factory("Optimum", function ($http) {
         bundle = {};
         bundle.locations = function(query) {
-            return $http.get('http://portal.optimumesp.com/api/auction');
+            return $http.get('https://portal.optimumesp.com/api/auction');
         }
         return bundle;
     })
