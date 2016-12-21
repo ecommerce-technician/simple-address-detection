@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular.js" integrity="sha256-g6Xp/JxVpGrPtK67q2kwtrTQNmKEHsBmw04v3ak0dWc=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAA8htwR_YQBNYbL4CWx8E4bc1tiJwqVxU"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key="></script>
 </head>
 <body ng-cloak ng-controller="AddressController">
 <div>
@@ -33,9 +33,9 @@
     .run(function () {
         "use strict";
     })
-    .controller('AddressController', function($scope, $sce, Optimum){
+    .controller('AddressController', function($scope, $sce, Catz){
         function getLatLng (lat, lng){
-            var gmKey = 'AIzaSyAAFcM1l5zfzZ1QfN9ggsdf4VOEmYYeP_8';
+            var gmKey = 'XXXXXXKEYXXXXXXX';
             return "https://www.google.com/maps/embed/v1/search?key=" + gmKey +"&zoom=12&q=auction&center=" + lat + "," + lng;
         }
         if (navigator.geolocation) {
@@ -77,10 +77,10 @@
             $scope.$apply();
         });
     })
-    .factory("Optimum", function ($http) {
+    .factory("Catz", function ($http) {
         bundle = {};
         bundle.locations = function(query) {
-            return $http.get('https://portal.optimumesp.com/api/auction');
+            return $http.get('https://http://thecatapi.com/');
         }
         return bundle;
     })
