@@ -42,8 +42,8 @@
           navigator.geolocation.getCurrentPosition(function(position){
             $scope.$apply(function(){
               $scope.googleMapsUrl = $sce.trustAsResourceUrl(getLatLng(position.coords.latitude, position.coords.longitude));
-              $scope.lat = location.lat();
-              $scope.lng = location.lng();
+              $scope.lat = position.coords.latitude;
+              $scope.lng = position.coords.longitude;
             });
           });
         }
