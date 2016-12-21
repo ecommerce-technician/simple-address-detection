@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" prefix='og: http://ogp.me/ns#' ng-app='StorageApp'>
 <head>
@@ -20,6 +19,8 @@
             <li>City: {{ city }}</li>
             <li>State: {{ state }}</li>
             <li>Zip: {{ zip }}</li>
+            <li>Lat: {{ lat }}</li>
+            <li>Lng: {{ lng }}</li>
         </ul>
 </div>
 <div>
@@ -37,7 +38,6 @@
             var gmKey = 'AIzaSyAAFcM1l5zfzZ1QfN9ggsdf4VOEmYYeP_8';
             return "https://www.google.com/maps/embed/v1/search?key=" + gmKey +"&zoom=12&q=auction&center=" + lat + "," + lng;
         }
-
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position){
             $scope.$apply(function(){
@@ -51,19 +51,23 @@
                 components = place.address_components,
                 location = place.geometry.location;
             $scope.googleMapsUrl = $sce.trustAsResourceUrl(getLatLng(location.lat(), location.lng()))
-
             components.map(function(component){
                 switch(component.types[0]){
                     case 'street_number':
                         $scope.streetNumber = component['long_name'];
+                        break
                     case 'route':
                         $scope.street = component['long_name'];
+                        break
                     case 'locality':
                         $scope.city = component['long_name'];
+                        break
                     case 'administrative_area_level_1':
                         $scope.state = component['long_name'];
+                        break
                     case 'postal_code':
                         $scope.zip = component['long_name'];
+                        break
                 }
             })
             $scope.$apply();
