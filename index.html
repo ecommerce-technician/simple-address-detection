@@ -54,6 +54,8 @@
                 location = place.geometry.location;
             $scope.googleMapsUrl = $sce.trustAsResourceUrl(getLatLng(location.lat(), location.lng()))
             components.map(function(component){
+                $scope.lat = location.lat();
+                $scope.lng = location.lng();
                 switch(component.types[0]){
                     case 'street_number':
                         $scope.streetNumber = component['long_name'];
